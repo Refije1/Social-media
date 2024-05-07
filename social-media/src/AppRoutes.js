@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-//import Register from "./pages/Register";
+import Register from "./pages/Register";
 import Login from "./pages/Login";
 //import Posts from "./pages/Posts";
 // import FriendShip from "./pages/FriendShip";
 // import RequireAuth from "./components/RequireAuth";
 // import Layout from "./layout/Layout";
-// import Profile from "./pages/Profile";
+import Profile from "./pages/Profile";
 // import About from "./components/profile/about/About";
 // import Overview from "./components/profile/about/Overview";
 // import Friends from "./components/profile/friends/Friends";
@@ -27,6 +27,8 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
+      <Route path="profile" element={<Profile />} />
     </Routes>
   );
 };
