@@ -23,9 +23,8 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/layout" element={<RequireAuth component={Layout} />} />
       
-      <Route path="/" element={<RequireAuth component={Layout} />}>
+      <Route path="" element={<RequireAuth component={Layout} />}>
         <Route index element={<RequireAuth component={Posts} />} />
         <Route path="/saved" element={<RequireAuth component={Saved} />} />
         <Route path="/posts/:postId" element={<EditPost />} />

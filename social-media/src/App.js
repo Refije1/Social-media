@@ -1,22 +1,52 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
 import "./App.css";
-import { useSelector } from "react-redux";
-import { selectUser } from "./store/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import jwtDecode from "jwt-decode";
+import { logInWithToken, selectUser } from "./store/slices/authSlice";
+import axiosInstance from "./api/axiosInstance";
+import { API_ROUTES } from "./api/apiConfig";
+import ScrollToTop from "./ScrollToTop";
+import { fetchPosts } from "./store/slices/postsSlice";
 
 function App() {
+  const dispatch = useDispatch();
   const loggedInUser = useSelector(selectUser);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token && !loggedInUser) {
+      const decodedToken = jwtDecode(localStorage.getItem("token"));
+      const isExpired = () => {
+        const dateNow = Date.now() / 1000;
+        return dateNow > decodedToken.exp;
+      };
+      if (!isExpired()) {
+        const fetchUserWithToken = async () => {
+          try {
+            const response = await axiosInstance.get(
+              API_ROUTES.users + `/${decodedToken.userId}`
+            );
+            const data = response.data;
+            dispatch(logInWithToken(data));
+          } catch (error) {}
+        };
+
+        fetchUserWithToken();
+      }
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
+        <AppRoutes />
       </div>
     </Router>
   );
