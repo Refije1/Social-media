@@ -1,0 +1,6 @@
+.PostActions {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 100%;
+  gap: 7px;
+}

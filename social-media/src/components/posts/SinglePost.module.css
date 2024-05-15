@@ -1,0 +1,23 @@
+.SinglePost {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  width: 100%;
+  max-width: 680px;
+  padding: 20px;
+  box-shadow: var(--shadow-type-1);
+  background: var(--color-grey-light-1);
+}
+
+.SinglePostModal {
+  box-shadow: none;
+  background-color: unset;
+  padding: 0;
+  border-radius: unset;
+}
+
+@media (min-width: 460px) {
+  .SinglePost {
+    border-radius: 15px;
+  }
+}

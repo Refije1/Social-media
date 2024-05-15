@@ -1,0 +1,80 @@
+.Sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 180px;
+  align-items: stretch;
+}
+
+.profile {
+  background-color: var(--color-grey-light-1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+  height: 80px;
+  box-shadow: var(--shadow-type-1);
+}
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-self: stretch;
+  width: calc(100% - 53px);
+}
+
+.routing-options {
+  border-radius: 16px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 10px;
+  background: var(--color-grey-light-1);
+  box-shadow: var(--shadow-type-1);
+}
+
+.route-holder {
+  font-size: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.route-holder:hover {
+  border-radius: 10px;
+  background: rgba(232, 232, 232, 0.8);
+}
+
+.route-logo {
+  width: 25px;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-content: center;
+  color: var(--color-primary-1);
+}
+
+.route-feed svg {
+  width: 25px;
+}
+
+.route-friends svg {
+  width: 25px;
+}
+
+.route-profile svg {
+}
+
+.route-market svg {
+}
+
+@media (min-width: 1000px) {
+  .route-holder {
+    font-size: 18px;
+  }
+}

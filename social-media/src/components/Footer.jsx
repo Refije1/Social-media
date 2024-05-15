@@ -9,7 +9,7 @@ const Footer = () => {
          <Link to="">Accessibly</Link>
          <Link to="">Help Center</Link>
          <Link to="">Privacy & Terms</Link>
-         <Link to="">Name Corporation © 2023</Link>
+         <Link to="">Name Corporation © 2024</Link>
     </div>
   )
 }

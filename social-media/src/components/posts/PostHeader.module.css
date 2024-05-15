@@ -1,0 +1,35 @@
+.PostHeader {
+  display: flex;
+  /* flex: 1; */
+  justify-content: space-between;
+}
+
+.user-and-photo {
+  display: flex;
+  gap: 10px;
+}
+
+.user-and-date-posted {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-and-photo img {
+  border-radius: 9999px;
+  /* border: 1px solid var(--color-grey-dark-1); */
+  height: 52px;
+  width: 52px;
+  object-fit: cover;
+}
+
+.settings {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.button {
+  cursor: pointer;
+}

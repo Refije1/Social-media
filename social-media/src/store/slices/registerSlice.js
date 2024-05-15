@@ -1,5 +1,5 @@
 import { API_ROUTES } from "../../api/apiConfig";
-import { axiosInstance, BASE_URL } from "../../api/config";
+import axiosInstance from "../../api/axiosInstance";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 const initialState = {
@@ -8,19 +8,15 @@ const initialState = {
   error: null,
 };
 
+// asyncthunk is responsible to make the fetchReqests.
 export const registerUser = createAsyncThunk(
   "register/registerUser",
   async (userData) => {
     try {
-      console.log("baseurl:", BASE_URL);
-      console.log("API_route:", API_ROUTES.register);
-      console.log("baseregister:", BASE_URL.register);
-      console.log("axir:", axiosInstance.defaults.baseURL);
       const response = await axiosInstance.post(API_ROUTES.register, userData);
-      console.log("Response:", response); // Log the response
+      // check form of response
       return response.data;
     } catch (err) {
-      console.error("Error:", err); // Log the error
       throw new Error(err.response.data.error);
     }
   }
@@ -47,7 +43,7 @@ const registerSlice = createSlice({
   },
 });
 
-export const selectRegisteredUser = (state) => state.register.registeredUser;
+export const selectRegisteredUser = (state) => state.register.user;
 export const selectRegisteredStatus = (state) => state.register.status;
 export const selectRegisteredError = (state) => state.register.error;
 

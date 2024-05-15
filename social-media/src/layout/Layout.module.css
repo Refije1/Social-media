@@ -1,0 +1,109 @@
+.Layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 15px;
+  position: relative;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* this class gets added when we visit profile page, so we dont have a grid system, anymore */
+.customClass {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+.customClass {
+  grid-column: 1 / span 3;
+}
+
+.left {
+  display: none;
+}
+
+.right {
+  display: none;
+}
+
+@media (min-width: 460px) {
+  .main {
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 890px) {
+  .main {
+    display: grid;
+    place-content: center;
+    grid-template-columns: minmax(150px, 200px) auto;
+    gap: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 0;
+  }
+
+  .customClass {
+    width: 100%;
+    display: flex;
+    max-width: unset;
+  }
+
+  /* try to inclde main elment for padding here */
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 180px;
+    grid-column: 1;
+  }
+
+  .right {
+    /* display: none; */
+    grid-row: 1;
+    /* grid-template-columns: 1; */
+  }
+
+  .mainElement {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main {
+    grid-template-columns: 1fr 2.8fr 1fr;
+    gap: 30px;
+  }
+
+  .mainElement {
+    grid-column: 2;
+  }
+
+  .left,
+  .right {
+    display: flex;
+    font-size: 16px;
+  }
+
+  .left {
+    display: flex;
+    width: 100%;
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-row: unset;
+    grid-column: unset;
+  }
+}

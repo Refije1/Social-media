@@ -1,0 +1,260 @@
+.storyContainer {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  padding: 10px;
+  width: calc(170px * 4);
+  max-width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.storyContainer::-webkit-scrollbar {
+  height: 4px;
+}
+
+.story {
+  width: 160px;
+  height: 180px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  background: linear-gradient(45deg, #f7644b, #f8f8f8);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.storyList {
+  display: flex;
+  gap: 10px;
+}
+
+.story:hover {
+  transform: scale(1.03);
+}
+
+.story img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.underUsername {
+  z-index: 20;
+  position: absolute;
+  bottom: 1px;
+  left: 16.5px;
+  width: 80%;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+}
+
+.userProfile {
+  position: absolute;
+  bottom: 18px;
+  left: 60px;
+  width: 38px;
+  height: 38px;
+  border: 2px solid #f7644b;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.userProfile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.storyModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column; /* Change to column layout */
+  align-items: center;
+  z-index: 999;
+}
+
+.storyModalImg {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.storyModalProfile {
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+  gap: 15px;
+}
+
+.storyModalProfileImg {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.storyModalUsername {
+  font-size: 20px;
+  color: white;
+}
+
+.storyModalBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.previousBtn {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  border-radius: 12px;
+  width: 100px;
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid lightgray;
+}
+
+.nextBtn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  border-radius: 12px;
+  width: 100px;
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid lightgray;
+}
+
+
+@media (max-width: 701px) {
+  .storyContainer {
+    width: 100%;
+    height: 130px;
+    padding-left: 2px;
+  }
+
+  .story {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: visible !important;
+  }
+
+  .storyList {
+    gap: 15px;
+  }
+
+  .story img {
+    border-radius: 50%;
+  }
+
+  .storyImages {
+    display: none;
+  }
+
+  .userProfile {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
+    overflow: visible;
+    border-radius: 50%;
+  }
+
+  .userProfile img {
+    border-radius: 50%;
+  }
+
+  .underUsername {
+    font-size: 10px;
+    left: 5px;
+    bottom: -20px;
+    z-index: 999;
+  }
+
+  .previousBtn {
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    border: none;
+    font-size: 30px;
+  }
+
+  .previousBtn svg {
+    display: none;
+  }
+
+  .previousBtn:active{
+    background-color: rgba(128, 128, 128, 0.15);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nextBtn {
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    border: none;
+    font-size: 30px;
+  }
+
+  .nextBtn svg {
+    display: none;
+  }
+
+  .nextBtn:active{
+    background-color: rgba(128, 128, 128, 0.1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .storyModalBtn {
+    z-index: 20;
+    color: black;
+  }
+
+  .storyModalImg {
+    position: absolute;
+    top: 0;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    z-index: -10;
+  }
+
+  .storyModalUsername {
+    color: black;
+    font-size: 16px;
+  }
+}

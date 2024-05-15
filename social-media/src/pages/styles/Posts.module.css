@@ -1,0 +1,18 @@
+.Posts,
+.PostsHolder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.PostsHolder {
+  gap: 15px;
+  width: 100%;
+}
+
+.Posts {
+  /* max-width: 1000px; */
+  width: 100%;
+  /* margin: 0 auto; */
+}

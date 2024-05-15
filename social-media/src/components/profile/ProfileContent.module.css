@@ -1,0 +1,29 @@
+.profile-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content-options {
+  background-color: white;
+}
+
+.profile-content .content-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content-main {
+  padding: 10px;
+}
+
+@media (min-width: 520px) {
+  .content-options {
+    justify-content: center;
+  }
+}
